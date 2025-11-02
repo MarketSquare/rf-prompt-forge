@@ -25,7 +25,7 @@ This ensures our prompts always reflect the latest library versions and modern b
 #### For Prompt Users
 
 1.  Navigate to the `prompts` directory.
-2.  Find the template that matches your task (e.g., `02-test-creation/01-browser-full-test.md`).
+2.  Find the template that matches your task (e.g., `02-test-creation/01-browser-test.md`).
 3.  Copy the entire content of the file and paste it into your favorite LLM.
 4.  Follow the instructions in the prompt to get an expert-guided result!
 
