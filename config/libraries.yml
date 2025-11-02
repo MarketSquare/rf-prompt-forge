@@ -1,0 +1,5 @@
+# List of Robot Framework libraries to process for prompt generation.
+# The script will install these and run libdoc to extract keyword data.
+libraries:
+  - name: Browser
+    package: robotframework-browser

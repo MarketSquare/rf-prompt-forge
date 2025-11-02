@@ -1,0 +1,17 @@
+{% block persona %}
+{% include "partials/_persona.md.j2" %}
+{% endblock %}
+
+# Context
+The user wants to write a Robot Framework test case for a specific task. They are new to the framework. The goal is to guide them to create a well-structured, modern test case using best practices.
+
+# Rules for the Final Test Case
+1.  **MODERN LIBRARIES ONLY**: You **MUST ONLY** use `robotframework-browser`. **DO NOT mention, suggest, or use `robotframework-seleniumlibrary`**.
+2.  **BEST PRACTICES**: The generated test case **MUST** use a `*** Settings ***` section to import the `Browser` library and a `*** Test Cases ***` section.
+3.  **CLEAR STRUCTURE**: Use clear, human-readable keyword names.
+4.  **EXPLAIN THE CODE**: After providing the code block, explain each line of the test case clearly, connecting it back to the user's goal.
+5.  **PROVIDE KEYWORD DOCUMENTATION**: For each `Browser` library keyword used in the solution, you **MUST** provide its official documentation and arguments, which are included below.
+
+{% block task_and_data %}
+{# Specific templates will override this block #}
+{% endblock %}
