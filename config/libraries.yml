@@ -1,5 +1,58 @@
 # List of Robot Framework libraries to process for prompt generation.
-# The script will install these and run libdoc to extract keyword data.
+#
+# Properties:
+#   name: The official library name used by Robot Framework (e.g., Browser, BuiltIn).
+#   package: The PyPI package name to install (required for type: pypi).
+#   type: 'pypi' for external libraries, 'builtin' for core RF libraries.
+#   enabled: Set to 'true' to generate prompts for this library.
+#   include_in_all: (Optional) If true, this library's keywords will be injected into all other generated prompts. Ideal for 'BuiltIn'.
+#   template: The Jinja2 template file to use for generating the prompt.
+#   output_file: The name of the final .md file to be created.
+#   category: The sub-directory within /prompts/ where the file will be placed.
+
 libraries:
+  - name: BuiltIn
+    package: robotframework
+    type: builtin
+    enabled: true
+    include_in_all: true # This is the new key to signal its special status
+
   - name: Browser
     package: robotframework-browser
+    type: pypi
+    enabled: true
+    template: 02-test-creation.md.j2
+    output_file: 01-browser-test.md
+    category: 02-test-creation
+
+  - name: SeleniumLibrary
+    package: robotframework-seleniumlibrary
+    type: pypi
+    enabled: true
+    template: 02-test-creation.md.j2 # Can reuse the web test template
+    output_file: 02-selenium-test.md
+    category: 02-test-creation
+
+  - name: RequestsLibrary
+    package: robotframework-requests
+    type: pypi
+    enabled: true
+    template: 03-api-test-creation.md.j2
+    output_file: 01-requests-api-test.md
+    category: 03-api-testing
+
+  - name: SSHLibrary
+    package: robotframework-sshlibrary
+    type: pypi
+    enabled: true
+    template: 04-ssh-test-creation.md.j2
+    output_file: 01-ssh-test.md
+    category: 04-ssh-testing
+
+  - name: AppiumLibrary
+    package: robotframework-appiumlibrary
+    type: pypi
+    enabled: true
+    template: 05-mobile-test-creation.md.j2 # New template for mobile
+    output_file: 01-appium-test.md
+    category: 05-mobile-testing

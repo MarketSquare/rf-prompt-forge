@@ -50,33 +50,41 @@ def main():
         python_executable = VENV_DIR / "Scripts" / "python.exe"
 
     try:
-        print("\n--- Installing dependencies into venv ---")
-        base_packages = ["robotframework", "PyYAML"]
-        library_packages = [lib["package"] for lib in libraries]
-        run_command([str(python_executable), "-m", "pip", "install"] + base_packages + library_packages)
+        # Collect packages that need installation
+        pypi_packages_to_install = [lib["package"] for lib in libraries if lib.get("type") == "pypi" and lib.get("enabled", False)]
 
-        if "robotframework-browser" in library_packages:
+        if pypi_packages_to_install:
+            print("\n--- Installing dependencies into venv ---")
+            base_packages = ["robotframework", "PyYAML"]
+            run_command([str(python_executable), "-m", "pip", "install"] + base_packages + pypi_packages_to_install)
+        else:
+            print("\n--- No PyPI dependencies to install in venv (only BuiltIn or disabled libraries) ---")
+
+        if "robotframework-browser" in pypi_packages_to_install:
             print("\n--- Initializing Browser library (rfbrowser init) ---")
             run_command([str(python_executable), "-m", "Browser.entry", "init"])
 
         print("\n--- Generating Libdoc JSON for each library ---")
         for lib in libraries:
-            lib_name = lib["name"]
-            output_file = DIST_DIR / f"{lib_name.lower()}.json"
-            
-            print(f"Processing '{lib_name}'...")
-            command = [
-                str(python_executable),
-                "-m",
-                "robot.libdoc",
-                "--format", "JSON",
-                # CRITICAL: Use RAW specdoc format to avoid unwanted HTML in docs
-                "--specdocformat", "RAW",
-                lib_name,
-                str(output_file)
-            ]
-            run_command(command)
-            print(f"Successfully generated libdoc at {output_file}")
+            if lib.get("enabled", False): # Only process enabled libraries
+                lib_name = lib["name"]
+                output_file = DIST_DIR / f"{lib_name.lower()}.json"
+                
+                print(f"Processing '{lib_name}'...")
+                command = [
+                    str(python_executable),
+                    "-m",
+                    "robot.libdoc",
+                    "--format", "JSON",
+                    # CRITICAL: Use RAW specdoc format to avoid unwanted HTML in docs
+                    "--specdocformat", "RAW",
+                    lib_name,
+                    str(output_file)
+                ]
+                run_command(command)
+                print(f"Successfully generated libdoc at {output_file}")
+            else:
+                print(f"Skipping disabled library: {lib['name']}")
 
     finally:
         print("\n--- Cleaning up temporary venv ---")

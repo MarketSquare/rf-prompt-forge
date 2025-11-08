@@ -16,10 +16,11 @@ Have an idea for a new prompt workflow (e.g., "A prompt for creating custom keyw
 Want to add prompt support for a new Robot Framework library?
 1.  **Fork the Repository.**
 2.  **Update `config/libraries.yml`**: Add the new library's name and PyPI package name to the list.
-3.  **Create a Template**: Create a new Jinja2 template (e.g., `templates/04-api-test-creation.md.j2`) for the library's primary use case. You can often copy and adapt an existing template.
-4.  **Update `scripts/generate_prompts.py`**: Modify the script to call your new template and generate the corresponding `.md` file in the `prompts/` directory.
-5.  **Run the Generator**: Run `python scripts/generate_prompts.py` to create the final prompt file.
-6.  **Create a Pull Request**: Submit your changes for review.
+3.  **Create a Template (if needed)**: If the library introduces a new testing domain (e.g., Desktop), create a new Jinja2 template (e.g., `templates/06-desktop-test.md.j2`). For common types like web or API, you can often reuse an existing template.
+4.  **Run the Generators**:
+    *   First, run `python scripts/generate_libdoc.py` to fetch the new library's keyword data.
+    *   Then, run `python scripts/generate_prompts.py` to create the final prompt file based on your new config entry.
+5.  **Create a Pull Request**: Submit your changes for review.
 
 ### Improving Existing Templates or Scripts
 
