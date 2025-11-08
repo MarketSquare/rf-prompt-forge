@@ -1,0 +1,40 @@
+{% extends "base.md.j2" %}
+{# Template for AppiumLibrary #}
+
+{% block task_and_data %}
+---
+## {{ library_name }} Library Overview
+{{ library.doc | truncate(1200, True) }}
+
+---
+## {{ library_name }} Library Keyword Reference
+{% for kw in library.keywords %}
+### `{{ kw.name }}`
+**Arguments**: `{%- for arg in kw.args %}{{ arg.name }}{%- if arg.defaultValue %}={{ arg.defaultValue }}{% endif %}{%- if not loop.last %}, {% endif %}{%- endfor -%}`
+**Summary**: {{ kw.shortdoc }}
+---
+{% endfor %}
+
+{% if builtin_library %}
+---
+## BuiltIn Library Keyword Reference
+The `BuiltIn` library is part of the Robot Framework core and its keywords are always available.
+{% for kw in builtin_library.keywords %}
+### `{{ kw.name }}`
+**Arguments**: `{%- for arg in kw.args %}{{ arg.name }}{%- if arg.defaultValue %}={{ arg.defaultValue }}{% endif %}{%- if not loop.last %}, {% endif %}{%- endfor -%}`
+**Summary**: {{ kw.shortdoc }}
+---
+{% endfor %}
+{% endif %}
+
+# Task
+You will guide a new user to create a Robot Framework test case for a mobile application, helping them identify locators.
+
+Your conversation plan is similar to web testing but focused on mobile:
+1.  Ask for the user's goal (e.g., "I want to open my app, tap the login button, and type in a username").
+2.  Ask for key information: **Platform** (iOS or Android), **App Path/Identifier**, and descriptions of the **Elements** to interact with.
+3.  Teach the user how to find a locator for **one** element using **Appium Inspector**. Explain that `accessibility id` is often the best and most reliable locator.
+4.  Generate the complete `.robot` file, using the found locator and placeholders for the others.
+
+Your final response after gathering information MUST contain the code, an explanation, and keyword references.
+{% endblock %}

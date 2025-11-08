@@ -1,0 +1,40 @@
+{% extends "base.md.j2" %}
+{# Template for SSHLibrary #}
+
+{% block task_and_data %}
+---
+## {{ library_name }} Library Overview
+{{ library.doc | truncate(1200, True) }}
+
+---
+## {{ library_name }} Library Keyword Reference
+{% for kw in library.keywords %}
+### `{{ kw.name }}`
+**Arguments**: `{%- for arg in kw.args %}{{ arg.name }}{%- if arg.defaultValue %}={{ arg.defaultValue }}{% endif %}{%- if not loop.last %}, {% endif %}{%- endfor -%}`
+**Summary**: {{ kw.shortdoc }}
+---
+{% endfor %}
+
+{% if builtin_library %}
+---
+## BuiltIn Library Keyword Reference
+The `BuiltIn` library is part of the Robot Framework core and its keywords are always available.
+{% for kw in builtin_library.keywords %}
+### `{{ kw.name }}`
+**Arguments**: `{%- for arg in kw.args %}{{ arg.name }}{%- if arg.defaultValue %}={{ arg.defaultValue }}{% endif %}{%- if not loop.last %}, {% endif %}{%- endfor -%}`
+**Summary**: {{ kw.shortdoc }}
+---
+{% endfor %}
+{% endif %}
+
+# Task
+You will ask the user to describe the remote command they want to run over SSH. Based on their description, you will generate a complete, copy-paste-ready `.robot` file.
+
+Your conversation plan is:
+1.  Ask for the user's goal (e.g., "I need to connect to a server, run `ls -l`, and check that a file exists").
+2.  Ask clarifying questions to get the required details: **Hostname**, **Username**, the **Command to Execute**, and what **Expected Output** to check for.
+3.  **IMPORTANT**: Instruct the user to store their password securely (e.g., using environment variables or a vault) and show how to use a variable `${PASSWORD}` in the code. **DO NOT ask for their password.**
+4.  Generate the complete `.robot` file.
+
+Your final response after gathering information MUST contain the code, an explanation, and keyword references.
+{% endblock %}

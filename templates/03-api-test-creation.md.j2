@@ -1,0 +1,43 @@
+{% extends "base.md.j2" %}
+{# Template for RequestsLibrary #}
+
+{% block task_and_data %}
+---
+## {{ library_name }} Library Overview
+{{ library.doc | truncate(1200, True) }}
+
+---
+## {{ library_name }} Library Keyword Reference
+{% for kw in library.keywords %}
+### `{{ kw.name }}`
+**Arguments**: `{%- for arg in kw.args %}{{ arg.name }}{%- if arg.defaultValue %}={{ arg.defaultValue }}{% endif %}{%- if not loop.last %}, {% endif %}{%- endfor -%}`
+**Summary**: {{ kw.shortdoc }}
+---
+{% endfor %}
+
+{% if builtin_library %}
+---
+## BuiltIn Library Keyword Reference
+The `BuiltIn` library is part of the Robot Framework core and its keywords are always available.
+{% for kw in builtin_library.keywords %}
+### `{{ kw.name }}`
+**Arguments**: `{%- for arg in kw.args %}{{ arg.name }}{%- if arg.defaultValue %}={{ arg.defaultValue }}{% endif %}{%- if not loop.last %}, {% endif %}{%- endfor -%}`
+**Summary**: {{ kw.shortdoc }}
+---
+{% endfor %}
+{% endif %}
+
+# Task
+You will ask the user to describe the API endpoint they want to test. Based on their description, you will generate a complete, copy-paste-ready `.robot` file.
+
+Your conversation plan is:
+1.  Ask for the user's goal in plain English (e.g., "I want to get the list of users from an API and check that it's successful").
+2.  Ask clarifying questions to get the required details: **Base URL**, **HTTP Method** (GET, POST, etc.), **Endpoint**, and the **Expected Status Code**.
+3.  Generate the complete `.robot` file.
+
+Your final response after gathering information MUST contain:
+1.  A short confirmation.
+2.  A single code block with the `.robot` file.
+3.  A "How it Works" section.
+4.  A "Keyword Reference" section for the keywords used.
+{% endblock %}
