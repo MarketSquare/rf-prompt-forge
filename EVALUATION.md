@@ -13,9 +13,9 @@ Any Pull Request that modifies a prompt (`.md` file in `/prompts/` or a `.j2` te
 The process is as follows:
 
 1.  **Choose Your LLM Testbeds**: Perform each test scenario on at least **two** of the following Large Language Models to ensure cross-compatibility.
-    *   Claude (e.g., Sonnet 3.5)
-    *   OpenAI GPT (e.g., GPT-4o)
-    *   Google Gemini (e.g., Gemini 1.5 Pro)
+    *   Claude
+    *   OpenAI ChatGPT
+    *   Google Gemini
 
 2.  **Select Test Scenarios**: Identify the relevant test scenarios from the list below that cover the changes you made.
 
