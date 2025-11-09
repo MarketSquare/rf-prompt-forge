@@ -19,6 +19,7 @@ The project has a robust, data-driven prompt generation engine and has expanded 
     -   SSH: `SSHLibrary`
 -   **[✓] Foundational Prompts**: We have highly-optimized, interactive prompts for **New User Setup** and **Test Case Creation**. The `BuiltIn` library keywords are now included in all relevant prompts.
 -   **[✓] Foundational Scripts**: The core scripts (`get_library_stats.py`, `generate_libdoc.py`, `generate_prompts.py`) are in place.
+-   **[✓] `robotframework.org` Integration**: Explore the feasibility of hosting the "copy prompt" functionality directly on the official Robot Framework website.
 
 ## Next Steps: Immediate Goals
 
@@ -36,5 +37,4 @@ These are longer-term goals to consider once the immediate priorities are comple
 -   **[ ] CI/CD Pipeline Prompts**: Create prompts for generating basic CI pipelines (e.g., GitHub Actions) to run Robot Framework tests.
 -   **[ ] Custom Keyword Prompts**: Develop a prompt that helps users refactor repetitive steps into their own reusable keywords.
 -   **[ ] Desktop Testing Prompts**: Add support for libraries like `robotframework-flaui` (Windows) or `robotframework-zoomba` (cross-platform).
--   **[ ] `robotframework.org` Integration**: Explore the feasibility of hosting the "copy prompt" functionality directly on the official Robot Framework website.
 -   **[ ] Tool-Specific Integrations**: Investigate creating specialized prompt files for specific tools, such as a `GEMINI.md` for the Gemini CLI.
