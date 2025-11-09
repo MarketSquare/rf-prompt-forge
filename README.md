@@ -8,7 +8,7 @@ A dynamic generator for creating expert-crafted, up-to-date prompt templates to 
 
 ### The Problem: Generic LLMs are Not Robot Framework Experts
 
-When a newcomer asks a generic LLM for help, the answer is often outdated (recommending `SeleniumLibrary` over `Browser`), incomplete, or missing best practices. This leads to a frustrating start for new users.
+When a newcomer asks a generic LLM for help, the answer is often outdated, incomplete, or missing best practices. This leads to a frustrating start for new users.
 
 ### The Solution: A Self-Updating Prompt Generation Engine
 
