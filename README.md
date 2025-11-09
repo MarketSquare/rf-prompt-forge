@@ -12,7 +12,7 @@ When a newcomer asks a generic LLM for help, the answer is often outdated, incom
 
 ### The Solution: A Self-Updating Prompt Generation Engine
 
-**RF-Prompt-Forge** is not a system that **generates** and maintains those expert prompts. It uses a Python-based toolkit to:
+**RF-Prompt-Forge** is a system that **generates** and maintains those expert prompts. It uses a Python-based toolkit to:
 1.  Programmatically install popular Robot Framework libraries like `robotframework-browser`.
 2.  Extract official keyword documentation directly from the source using `libdoc`.
 3.  Inject this up-to-date information into expert-crafted Jinja2 templates.
