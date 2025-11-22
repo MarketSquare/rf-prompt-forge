@@ -25,7 +25,7 @@ The project has a robust, data-driven prompt generation engine and has expanded 
 
 These are the items we are actively working on or planning to start soon.
 
--   **[ ] Automate with GitHub Actions**: Create a scheduled GitHub workflow that automatically runs the generation scripts and creates a Pull Request if the prompts have changed due to a library update. This will keep our prompts perpetually up-to-date.
+-   **[✓] Automate with GitHub Actions**: Created a scheduled GitHub workflow that automatically runs the generation scripts and creates a Pull Request if the prompts have changed due to a library update. This keeps our prompts perpetually up-to-date.
 -   **[ ] Enhance Tooling Prompts**: Create prompts for ecosystem tools like `Pabot` (for parallel execution) and `Robocop` (for linting and quality checks).
 -   **[ ] Further Library Expansion**: Add support for other popular libraries based on our PyPI stats analysis, such as `robotframework-databaselibrary`.
 
