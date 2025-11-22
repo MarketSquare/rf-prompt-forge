@@ -46,23 +46,23 @@ by wrapping the well known Python Requests Library.
 ---
 ## RequestsLibrary Library Keyword Reference
 ### `Create Client Cert Session`
-**Arguments**: `alias, url, headers={}, cookies={}, client_certs=None, timeout=None, proxies=None, verify=False, debug=0, max_retries=3, backoff_factor=0.1, disable_warnings=0, retry_status_list=[], retry_method_list=['GET', 'PUT', 'DELETE', 'HEAD', 'OPTIONS', 'TRACE']`
+**Arguments**: `alias, url, headers={}, cookies={}, client_certs=None, timeout=None, proxies=None, verify=False, debug=0, max_retries=3, backoff_factor=0.1, disable_warnings=0, retry_status_list=[], retry_method_list=['GET', 'DELETE', 'PUT', 'HEAD', 'TRACE', 'OPTIONS']`
 **Summary**: Create Session: create a HTTP session to a server
 ---
 ### `Create Custom Session`
-**Arguments**: `alias, url, auth, headers={}, cookies={}, timeout=None, proxies=None, verify=False, debug=0, max_retries=3, backoff_factor=0.1, disable_warnings=0, retry_status_list=[], retry_method_list=['GET', 'PUT', 'DELETE', 'HEAD', 'OPTIONS', 'TRACE']`
+**Arguments**: `alias, url, auth, headers={}, cookies={}, timeout=None, proxies=None, verify=False, debug=0, max_retries=3, backoff_factor=0.1, disable_warnings=0, retry_status_list=[], retry_method_list=['GET', 'DELETE', 'PUT', 'HEAD', 'TRACE', 'OPTIONS']`
 **Summary**: Create Session: create a HTTP session to a server
 ---
 ### `Create Digest Session`
-**Arguments**: `alias, url, auth, headers={}, cookies={}, timeout=None, proxies=None, verify=False, debug=0, max_retries=3, backoff_factor=0.1, disable_warnings=0, retry_status_list=[], retry_method_list=['GET', 'PUT', 'DELETE', 'HEAD', 'OPTIONS', 'TRACE']`
+**Arguments**: `alias, url, auth, headers={}, cookies={}, timeout=None, proxies=None, verify=False, debug=0, max_retries=3, backoff_factor=0.1, disable_warnings=0, retry_status_list=[], retry_method_list=['GET', 'DELETE', 'PUT', 'HEAD', 'TRACE', 'OPTIONS']`
 **Summary**: Create Session: create a HTTP session to a server
 ---
 ### `Create Ntlm Session`
-**Arguments**: `alias, url, auth, headers={}, cookies={}, timeout=None, proxies=None, verify=False, debug=0, max_retries=3, backoff_factor=0.1, disable_warnings=0, retry_status_list=[], retry_method_list=['GET', 'PUT', 'DELETE', 'HEAD', 'OPTIONS', 'TRACE']`
+**Arguments**: `alias, url, auth, headers={}, cookies={}, timeout=None, proxies=None, verify=False, debug=0, max_retries=3, backoff_factor=0.1, disable_warnings=0, retry_status_list=[], retry_method_list=['GET', 'DELETE', 'PUT', 'HEAD', 'TRACE', 'OPTIONS']`
 **Summary**: Create Session: create a HTTP session to a server
 ---
 ### `Create Session`
-**Arguments**: `alias, url, headers={}, cookies={}, auth=None, timeout=None, proxies=None, verify=False, debug=0, max_retries=3, backoff_factor=0.1, disable_warnings=0, retry_status_list=[], retry_method_list=['GET', 'PUT', 'DELETE', 'HEAD', 'OPTIONS', 'TRACE']`
+**Arguments**: `alias, url, headers={}, cookies={}, auth=None, timeout=None, proxies=None, verify=False, debug=0, max_retries=3, backoff_factor=0.1, disable_warnings=0, retry_status_list=[], retry_method_list=['GET', 'DELETE', 'PUT', 'HEAD', 'TRACE', 'OPTIONS']`
 **Summary**: Create Session: create a HTTP session to a server
 ---
 ### `DELETE`
