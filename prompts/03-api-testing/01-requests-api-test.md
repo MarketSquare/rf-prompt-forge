@@ -207,7 +207,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 ---
 ### `Convert To Boolean`
 **Arguments**: `item`
-**Summary**: Converts the given item to Boolean true or false.
+**Summary**: Converts the given item to Boolean ``True`` or ``False``.
 ---
 ### `Convert To Bytes`
 **Arguments**: `input, input_type=text`
@@ -278,7 +278,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Returns the given time in the requested format.
 ---
 ### `Get Variable Value`
-**Arguments**: `name, default=None`
+**Arguments**: `name, default=None, `
 **Summary**: Returns variable value or ``default`` if the variable does not exist.
 ---
 ### `Get Variables`
@@ -286,15 +286,15 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Returns a dictionary containing all variables in the current scope.
 ---
 ### `Import Library`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Imports a library with the given name and optional arguments.
 ---
 ### `Import Resource`
-**Arguments**: `path`
+**Arguments**: `path, `
 **Summary**: Imports a resource file with the given path.
 ---
 ### `Import Variables`
-**Arguments**: `path, args`
+**Arguments**: `path, , args`
 **Summary**: Imports a variable file with the given path and optional arguments.
 ---
 ### `Keyword Should Exist`
@@ -306,7 +306,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Verifies that the length of the given item is correct.
 ---
 ### `Log`
-**Arguments**: `message, level=INFO, html=False, console=False, repr=DEPRECATED, formatter=str`
+**Arguments**: `message, level=INFO, html=False, console=None, repr=DEPRECATED, formatter=str`
 **Summary**: Logs the given message with the given level.
 ---
 ### `Log Many`
@@ -314,7 +314,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Logs the given messages as separate entries using the INFO level.
 ---
 ### `Log To Console`
-**Arguments**: `message, stream=STDOUT, no_newline=False, format`
+**Arguments**: `message, stream=stdout, no_newline=False, format=None`
 **Summary**: Logs the given message to the console.
 ---
 ### `Log Variables`
@@ -330,12 +330,12 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Skips rest of the current test, setup, or teardown with PASS status.
 ---
 ### `Pass Execution If`
-**Arguments**: `condition, message, tags`
+**Arguments**: `condition, message, , tags`
 **Summary**: Conditionally skips rest of the current test, setup, or teardown with PASS status.
 ---
 ### `Regexp Escape`
 **Arguments**: `patterns`
-**Summary**: Returns each argument string escaped for use as a regular expression.
+**Summary**: Returns each argument escaped for use as a regular expression.
 ---
 ### `Reload Library`
 **Arguments**: `name_or_instance`
@@ -346,7 +346,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Removes given ``tags`` from the current test or all tests in a suite.
 ---
 ### `Repeat Keyword`
-**Arguments**: `repeat, name, args`
+**Arguments**: `repeat, name, , args`
 **Summary**: Executes the specified keyword multiple times.
 ---
 ### `Replace Variables`
@@ -366,71 +366,71 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Returns from the enclosing user keyword if ``condition`` is true.
 ---
 ### `Run Keyword`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Executes the given keyword with the given arguments.
 ---
 ### `Run Keyword And Continue On Failure`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the keyword and continues execution even if a failure occurs.
 ---
 ### `Run Keyword And Expect Error`
-**Arguments**: `expected_error, name, args`
+**Arguments**: `expected_error, name, , args`
 **Summary**: Runs the keyword and checks that the expected error occurred.
 ---
 ### `Run Keyword And Ignore Error`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the given keyword with the given arguments and ignores possible error.
 ---
 ### `Run Keyword And Return`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the specified keyword and returns from the enclosing user keyword.
 ---
 ### `Run Keyword And Return If`
-**Arguments**: `condition, name, args`
+**Arguments**: `condition, name, , args`
 **Summary**: Runs the specified keyword and returns from the enclosing user keyword.
 ---
 ### `Run Keyword And Return Status`
-**Arguments**: `name, args`
-**Summary**: Runs the given keyword with given arguments and returns the status as a Boolean value.
+**Arguments**: `name, , args`
+**Summary**: Runs the specified keyword and returns the status as a Boolean value.
 ---
 ### `Run Keyword And Warn On Failure`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the specified keyword logs a warning if the keyword fails.
 ---
 ### `Run Keyword If`
-**Arguments**: `condition, name, args`
+**Arguments**: `condition, name, , args`
 **Summary**: Runs the given keyword with the given arguments, if ``condition`` is true.
 ---
 ### `Run Keyword If All Tests Passed`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the given keyword with the given arguments, if all tests passed.
 ---
 ### `Run Keyword If Any Tests Failed`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the given keyword with the given arguments, if one or more tests failed.
 ---
 ### `Run Keyword If Test Failed`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the given keyword with the given arguments, if the test failed.
 ---
 ### `Run Keyword If Test Passed`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the given keyword with the given arguments, if the test passed.
 ---
 ### `Run Keyword If Timeout Occurred`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the given keyword if either a test or a keyword timeout has occurred.
 ---
 ### `Run Keyword Unless`
-**Arguments**: `condition, name, args`
-**Summary**: *DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*
+**Arguments**: `condition, name, , args`
+**Summary**: *DEPRECATED since RF 5.0. Use native IF/ELSE or `Run Keyword If` instead.*
 ---
 ### `Run Keywords`
-**Arguments**: `keywords`
+**Arguments**: `names_and_args`
 **Summary**: Executes all the given keywords in a sequence.
 ---
 ### `Set Global Variable`
-**Arguments**: `name, values`
+**Arguments**: `name, , values`
 **Summary**: Makes a variable available globally in all tests and suites.
 ---
 ### `Set Library Search Order`
@@ -438,7 +438,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Sets the resolution order to use when a name matches multiple keywords.
 ---
 ### `Set Local Variable`
-**Arguments**: `name, values`
+**Arguments**: `name, , values`
 **Summary**: Makes a variable available everywhere within the local scope.
 ---
 ### `Set Log Level`
@@ -454,7 +454,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Sets metadata for the current test suite.
 ---
 ### `Set Suite Variable`
-**Arguments**: `name, values`
+**Arguments**: `name, , values`
 **Summary**: Makes a variable available everywhere within the scope of the current suite.
 ---
 ### `Set Tags`
@@ -462,7 +462,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Adds given ``tags`` for the current test or all tests in a suite.
 ---
 ### `Set Task Variable`
-**Arguments**: `name, values`
+**Arguments**: `name, , values`
 **Summary**: Makes a variable available everywhere within the scope of the current task.
 ---
 ### `Set Test Documentation`
@@ -474,7 +474,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Sets message for the current test case.
 ---
 ### `Set Test Variable`
-**Arguments**: `name, values`
+**Arguments**: `name, , values`
 **Summary**: Makes a variable available everywhere within the scope of the current test.
 ---
 ### `Set Variable`
@@ -482,7 +482,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Returns the given values which can then be assigned to a variables.
 ---
 ### `Set Variable If`
-**Arguments**: `condition, values`
+**Arguments**: `condition, , values`
 **Summary**: Sets variable based on the given condition.
 ---
 ### `Should Be Empty`
@@ -598,15 +598,15 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Pauses the test executed for the given time.
 ---
 ### `Variable Should Exist`
-**Arguments**: `name, message=None`
+**Arguments**: `name, message=None, `
 **Summary**: Fails unless the given variable exists within the current scope.
 ---
 ### `Variable Should Not Exist`
-**Arguments**: `name, message=None`
+**Arguments**: `name, message=None, `
 **Summary**: Fails if the given variable exists within the current scope.
 ---
 ### `Wait Until Keyword Succeeds`
-**Arguments**: `retry, retry_interval, name, args`
+**Arguments**: `retry, retry_interval, name, , args`
 **Summary**: Runs the specified keyword and retries if it fails.
 ---
 

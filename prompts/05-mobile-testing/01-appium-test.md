@@ -91,21 +91,17 @@ It is also possible to ...
 **Arguments**: `locator, attr_name, match_pattern, regexp=False`
 **Summary**: Verifies that an attribute of an element matches the expected criteria.
 ---
-### `Element Name Should Be`
-**Arguments**: `locator, expected`
-**Summary**: *DEPRECATED!!* 
----
 ### `Element Should Be Disabled`
 **Arguments**: `locator, loglevel=INFO`
-**Summary**: Verifies that element identified by ``locator`` is disabled.
+**Summary**: *DEPRECATED!!* Use `Expect Element` instead
 ---
 ### `Element Should Be Enabled`
 **Arguments**: `locator, loglevel=INFO`
-**Summary**: Verifies that the element identified by ``locator`` is enabled.
+**Summary**: *DEPRECATED!!* Use `Expect Element` instead Verifies that the element identified by ``locator`` is enabled.
 ---
 ### `Element Should Be Visible`
 **Arguments**: `locator, loglevel=INFO`
-**Summary**: Verifies that the element identified by ``locator`` is visible.
+**Summary**: *DEPRECATED!!* Use `Expect Element` instead Verifies that the element identified by ``locator`` is visible.
 ---
 ### `Element Should Contain Text`
 **Arguments**: `locator, expected, message`
@@ -118,10 +114,6 @@ It is also possible to ...
 ### `Element Text Should Be`
 **Arguments**: `locator, expected, message`
 **Summary**: Verifies that the element identified by ``locator`` contains the exact text ``expected``.
----
-### `Element Value Should Be`
-**Arguments**: `locator, expected`
-**Summary**: *DEPRECATED!!* 
 ---
 ### `Execute Adb Shell`
 **Arguments**: `command, args`
@@ -138,6 +130,14 @@ It is also possible to ...
 ### `Execute Script`
 **Arguments**: `script, kwargs`
 **Summary**: Executes a variety of native, mobile commands that aren't associated with a specific endpoint. Check out the appium drivers for more details: https://appium.io/docs/en/2.19/ecosystem/drivers/.
+---
+### `Expect Element`
+**Arguments**: `locator, state, timeout=0:00:05, retry_interval=0:00:01, message=None, loglevel=INFO`
+**Summary**: Verifies that the element with the given ``locator`` has the desired ``state`` (visible, not visible, enabled, disabled.)
+---
+### `Expect Text`
+**Arguments**: `text, state, exact_match=False, timeout=0:00:05, retry_interval=0:00:01, message=None, loglevel=INFO`
+**Summary**: Verifies that the ``text`` has the desired ``state`` (visible, not visible).
 ---
 ### `Flick`
 **Arguments**: `start_x, start_y, end_x, end_y`
@@ -291,10 +291,6 @@ It is also possible to ...
 **Arguments**: `loglevel=INFO`
 **Summary**: Logs and returns the entire html source of the current page or frame.
 ---
-### `Long Press`
-**Arguments**: `locator, duration=1000`
-**Summary**: *DEPRECATED!!*  Use `Tap` instead.
----
 ### `Long Press Keycode`
 **Arguments**: `keycode, metastate=None`
 **Summary**: Sends a long press of ``keycode`` to the device.
@@ -351,16 +347,12 @@ It is also possible to ...
 **Arguments**: `application_id`
 **Summary**: Removes the application that is identified by the ``application_id``.
 ---
-### `Reset Application`
-**Arguments**: ``
-**Summary**: *DEPRECATED!!* in selenium v4, check `Terminate Application` keyword.
----
 ### `Scroll`
 **Arguments**: `start_locator, end_locator`
 **Summary**: Scrolls from the element identified by ``start_locator`` to the element identified by ``end_locator``. Key attributes for arbitrary elements are `id` and `name`. See `introduction` for details about locating elements.
 ---
 ### `Scroll Down`
-**Arguments**: `locator, timeout=10, retry_interval=1`
+**Arguments**: `locator, timeout=0:00:10, retry_interval=0:00:01`
 **Summary**: Scrolls down until the element identified by ``locator`` is found or until the ``timeout`` (Android only) is reached.
 ---
 ### `Scroll Element Into View`
@@ -368,7 +360,7 @@ It is also possible to ...
 **Summary**: Scrolls the element with the given ``locator`` into view.
 ---
 ### `Scroll Up`
-**Arguments**: `locator, timeout=10, retry_interval=1`
+**Arguments**: `locator, timeout=0:00:10, retry_interval=0:00:01`
 **Summary**: Scrolls up until the element identified by the ``locator`` is found or the ``timeout`` (Android only) is reached.
 ---
 ### `Set Appium Timeout`
@@ -444,7 +436,7 @@ It is also possible to ...
 **Summary**: Sends one or more taps with one or more touch points.
 ---
 ### `Tap With Positions`
-**Arguments**: `duration=0:00:01, locations`
+**Arguments**: `duration=0:00:00.500000, locations`
 **Summary**: Taps on a particular place with up to five fingers, holding for a certain time.
 ---
 ### `Terminate Application`
@@ -453,7 +445,7 @@ It is also possible to ...
 ---
 ### `Text Should Be Visible`
 **Arguments**: `text, exact_match=False, loglevel=INFO`
-**Summary**: Verifies that the element identified by ``text`` is visible.
+**Summary**: *DEPRECATED!!* Use `Expect Text` instead Verifies that the element identified by ``text`` is visible.
 ---
 ### `Toggle Touch Id Enrollment`
 **Arguments**: ``
@@ -491,10 +483,6 @@ It is also possible to ...
 **Arguments**: `xpath, count, error=None, loglevel=INFO`
 **Summary**: Verifies that the page contains the given number of elements (``count``) located by ``xpath``.
 ---
-### `Zoom`
-**Arguments**: `locator, percent=200%, steps=1`
-**Summary**: *DEPRECATED!!* Zooms in on an element a certain amount.
----
 
 ---
 ## BuiltIn Library Keyword Reference
@@ -525,7 +513,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 ---
 ### `Convert To Boolean`
 **Arguments**: `item`
-**Summary**: Converts the given item to Boolean true or false.
+**Summary**: Converts the given item to Boolean ``True`` or ``False``.
 ---
 ### `Convert To Bytes`
 **Arguments**: `input, input_type=text`
@@ -596,7 +584,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Returns the given time in the requested format.
 ---
 ### `Get Variable Value`
-**Arguments**: `name, default=None`
+**Arguments**: `name, default=None, `
 **Summary**: Returns variable value or ``default`` if the variable does not exist.
 ---
 ### `Get Variables`
@@ -604,15 +592,15 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Returns a dictionary containing all variables in the current scope.
 ---
 ### `Import Library`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Imports a library with the given name and optional arguments.
 ---
 ### `Import Resource`
-**Arguments**: `path`
+**Arguments**: `path, `
 **Summary**: Imports a resource file with the given path.
 ---
 ### `Import Variables`
-**Arguments**: `path, args`
+**Arguments**: `path, , args`
 **Summary**: Imports a variable file with the given path and optional arguments.
 ---
 ### `Keyword Should Exist`
@@ -624,7 +612,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Verifies that the length of the given item is correct.
 ---
 ### `Log`
-**Arguments**: `message, level=INFO, html=False, console=False, repr=DEPRECATED, formatter=str`
+**Arguments**: `message, level=INFO, html=False, console=None, repr=DEPRECATED, formatter=str`
 **Summary**: Logs the given message with the given level.
 ---
 ### `Log Many`
@@ -632,7 +620,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Logs the given messages as separate entries using the INFO level.
 ---
 ### `Log To Console`
-**Arguments**: `message, stream=STDOUT, no_newline=False, format`
+**Arguments**: `message, stream=stdout, no_newline=False, format=None`
 **Summary**: Logs the given message to the console.
 ---
 ### `Log Variables`
@@ -648,12 +636,12 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Skips rest of the current test, setup, or teardown with PASS status.
 ---
 ### `Pass Execution If`
-**Arguments**: `condition, message, tags`
+**Arguments**: `condition, message, , tags`
 **Summary**: Conditionally skips rest of the current test, setup, or teardown with PASS status.
 ---
 ### `Regexp Escape`
 **Arguments**: `patterns`
-**Summary**: Returns each argument string escaped for use as a regular expression.
+**Summary**: Returns each argument escaped for use as a regular expression.
 ---
 ### `Reload Library`
 **Arguments**: `name_or_instance`
@@ -664,7 +652,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Removes given ``tags`` from the current test or all tests in a suite.
 ---
 ### `Repeat Keyword`
-**Arguments**: `repeat, name, args`
+**Arguments**: `repeat, name, , args`
 **Summary**: Executes the specified keyword multiple times.
 ---
 ### `Replace Variables`
@@ -684,71 +672,71 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Returns from the enclosing user keyword if ``condition`` is true.
 ---
 ### `Run Keyword`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Executes the given keyword with the given arguments.
 ---
 ### `Run Keyword And Continue On Failure`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the keyword and continues execution even if a failure occurs.
 ---
 ### `Run Keyword And Expect Error`
-**Arguments**: `expected_error, name, args`
+**Arguments**: `expected_error, name, , args`
 **Summary**: Runs the keyword and checks that the expected error occurred.
 ---
 ### `Run Keyword And Ignore Error`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the given keyword with the given arguments and ignores possible error.
 ---
 ### `Run Keyword And Return`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the specified keyword and returns from the enclosing user keyword.
 ---
 ### `Run Keyword And Return If`
-**Arguments**: `condition, name, args`
+**Arguments**: `condition, name, , args`
 **Summary**: Runs the specified keyword and returns from the enclosing user keyword.
 ---
 ### `Run Keyword And Return Status`
-**Arguments**: `name, args`
-**Summary**: Runs the given keyword with given arguments and returns the status as a Boolean value.
+**Arguments**: `name, , args`
+**Summary**: Runs the specified keyword and returns the status as a Boolean value.
 ---
 ### `Run Keyword And Warn On Failure`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the specified keyword logs a warning if the keyword fails.
 ---
 ### `Run Keyword If`
-**Arguments**: `condition, name, args`
+**Arguments**: `condition, name, , args`
 **Summary**: Runs the given keyword with the given arguments, if ``condition`` is true.
 ---
 ### `Run Keyword If All Tests Passed`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the given keyword with the given arguments, if all tests passed.
 ---
 ### `Run Keyword If Any Tests Failed`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the given keyword with the given arguments, if one or more tests failed.
 ---
 ### `Run Keyword If Test Failed`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the given keyword with the given arguments, if the test failed.
 ---
 ### `Run Keyword If Test Passed`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the given keyword with the given arguments, if the test passed.
 ---
 ### `Run Keyword If Timeout Occurred`
-**Arguments**: `name, args`
+**Arguments**: `name, , args`
 **Summary**: Runs the given keyword if either a test or a keyword timeout has occurred.
 ---
 ### `Run Keyword Unless`
-**Arguments**: `condition, name, args`
-**Summary**: *DEPRECATED since RF 5.0. Use Native IF/ELSE or `Run Keyword If` instead.*
+**Arguments**: `condition, name, , args`
+**Summary**: *DEPRECATED since RF 5.0. Use native IF/ELSE or `Run Keyword If` instead.*
 ---
 ### `Run Keywords`
-**Arguments**: `keywords`
+**Arguments**: `names_and_args`
 **Summary**: Executes all the given keywords in a sequence.
 ---
 ### `Set Global Variable`
-**Arguments**: `name, values`
+**Arguments**: `name, , values`
 **Summary**: Makes a variable available globally in all tests and suites.
 ---
 ### `Set Library Search Order`
@@ -756,7 +744,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Sets the resolution order to use when a name matches multiple keywords.
 ---
 ### `Set Local Variable`
-**Arguments**: `name, values`
+**Arguments**: `name, , values`
 **Summary**: Makes a variable available everywhere within the local scope.
 ---
 ### `Set Log Level`
@@ -772,7 +760,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Sets metadata for the current test suite.
 ---
 ### `Set Suite Variable`
-**Arguments**: `name, values`
+**Arguments**: `name, , values`
 **Summary**: Makes a variable available everywhere within the scope of the current suite.
 ---
 ### `Set Tags`
@@ -780,7 +768,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Adds given ``tags`` for the current test or all tests in a suite.
 ---
 ### `Set Task Variable`
-**Arguments**: `name, values`
+**Arguments**: `name, , values`
 **Summary**: Makes a variable available everywhere within the scope of the current task.
 ---
 ### `Set Test Documentation`
@@ -792,7 +780,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Sets message for the current test case.
 ---
 ### `Set Test Variable`
-**Arguments**: `name, values`
+**Arguments**: `name, , values`
 **Summary**: Makes a variable available everywhere within the scope of the current test.
 ---
 ### `Set Variable`
@@ -800,7 +788,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Returns the given values which can then be assigned to a variables.
 ---
 ### `Set Variable If`
-**Arguments**: `condition, values`
+**Arguments**: `condition, , values`
 **Summary**: Sets variable based on the given condition.
 ---
 ### `Should Be Empty`
@@ -916,15 +904,15 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Pauses the test executed for the given time.
 ---
 ### `Variable Should Exist`
-**Arguments**: `name, message=None`
+**Arguments**: `name, message=None, `
 **Summary**: Fails unless the given variable exists within the current scope.
 ---
 ### `Variable Should Not Exist`
-**Arguments**: `name, message=None`
+**Arguments**: `name, message=None, `
 **Summary**: Fails if the given variable exists within the current scope.
 ---
 ### `Wait Until Keyword Succeeds`
-**Arguments**: `retry, retry_interval, name, args`
+**Arguments**: `retry, retry_interval, name, , args`
 **Summary**: Runs the specified keyword and retries if it fails.
 ---
 
