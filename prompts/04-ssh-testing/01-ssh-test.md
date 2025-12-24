@@ -277,7 +277,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Returns the given time in the requested format.
 ---
 ### `Get Variable Value`
-**Arguments**: `name, default=None, `
+**Arguments**: `name, default=None`
 **Summary**: Returns variable value or ``default`` if the variable does not exist.
 ---
 ### `Get Variables`
@@ -285,15 +285,15 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Returns a dictionary containing all variables in the current scope.
 ---
 ### `Import Library`
-**Arguments**: `name, , args`
+**Arguments**: `name, args`
 **Summary**: Imports a library with the given name and optional arguments.
 ---
 ### `Import Resource`
-**Arguments**: `path, `
+**Arguments**: `path`
 **Summary**: Imports a resource file with the given path.
 ---
 ### `Import Variables`
-**Arguments**: `path, , args`
+**Arguments**: `path, args`
 **Summary**: Imports a variable file with the given path and optional arguments.
 ---
 ### `Keyword Should Exist`
@@ -329,7 +329,7 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Skips rest of the current test, setup, or teardown with PASS status.
 ---
 ### `Pass Execution If`
-**Arguments**: `condition, message, , tags`
+**Arguments**: `condition, message, tags`
 **Summary**: Conditionally skips rest of the current test, setup, or teardown with PASS status.
 ---
 ### `Regexp Escape`
@@ -597,11 +597,11 @@ The `BuiltIn` library is part of the Robot Framework core and its keywords are a
 **Summary**: Pauses the test executed for the given time.
 ---
 ### `Variable Should Exist`
-**Arguments**: `name, message=None, `
+**Arguments**: `name, message=None`
 **Summary**: Fails unless the given variable exists within the current scope.
 ---
 ### `Variable Should Not Exist`
-**Arguments**: `name, message=None, `
+**Arguments**: `name, message=None`
 **Summary**: Fails if the given variable exists within the current scope.
 ---
 ### `Wait Until Keyword Succeeds`
